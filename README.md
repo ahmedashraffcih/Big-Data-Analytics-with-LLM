@@ -13,7 +13,7 @@ After generating the data, it performs basic analysis to answer questions such a
 
 ## ⚡ System Architecture
 
-![System Architecture](https://github.com/ahmedashraffcih/Big-Data-Analytics-with-LLM/blob/main/imgs/Blank%20board.png)
+![System Architecture](https://github.com/ahmedashraffcih/Big-Data-Analytics-with-LLM/blob/main/imgs/newboard.png)
 
 The project is designed with the following components:
 
