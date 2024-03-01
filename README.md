@@ -51,6 +51,8 @@ The project is designed with the following components:
     ```bash
     docker-compose up
     ```
+`Note that sequential executor will not work with the current DAG`
+
 To use this notebook, follow these instructions:
 
 1. Make sure you have Python installed on your system.
