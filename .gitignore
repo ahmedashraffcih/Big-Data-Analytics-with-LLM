@@ -1,0 +1,5 @@
+dags/Stream_data_from_kafka_to_PG copy.py
+dags/__pycache__/
+test_locally copy.py
+.venv
+cache/

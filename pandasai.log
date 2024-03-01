@@ -1,0 +1,717 @@
+2024-03-01 17:47:22 [INFO] Question: Which product has the highest total_sales?
+2024-03-01 17:47:22 [INFO] Running PandasAI with openai LLM...
+2024-03-01 17:47:22 [INFO] Prompt ID: 262c687f-6e50-43b7-8e9e-fd8cf7aa2992
+2024-03-01 17:47:22 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-03-01 17:47:22 [INFO] Executing Step 0: ValidatePipelineInput
+2024-03-01 17:47:22 [INFO] Executing Step 1: CacheLookup
+2024-03-01 17:47:22 [INFO] Executing Step 2: PromptGeneration
+2024-03-01 17:47:22 [INFO] Using prompt: dfs[0]:
+  name: null
+  description: null
+  type: pd.DataFrame
+  rows: 1000
+  columns: 6
+  schema:
+    fields:
+    - name: Date
+      type: datetime64[ns]
+      samples:
+      - !!python/object/apply:pandas._libs.tslibs.timestamps._unpickle_timestamp
+        - 1675123200000000000
+        - null
+        - null
+        - 10
+      - !!python/object/apply:pandas._libs.tslibs.timestamps._unpickle_timestamp
+        - 1674950400000000000
+        - null
+        - null
+        - 10
+      - !!python/object/apply:pandas._libs.tslibs.timestamps._unpickle_timestamp
+        - 1681516800000000000
+        - null
+        - null
+        - 10
+    - name: outlets
+      type: object
+      samples:
+      - Outlet_64
+      - Outlet_11
+      - Outlet_93
+    - name: Products
+      type: object
+      samples:
+      - Product_4
+      - Product_28
+      - Product_22
+    - name: Unit_sold
+      type: int32
+      samples:
+      - 51
+      - 158
+      - 217
+    - name: Price_Per_Unit
+      type: float64
+      samples:
+      - 41.58548992949356
+      - 32.42051078081388
+      - 41.0857499976029
+    - name: Total_Sales
+      type: object
+      samples:
+      - '5219616105'
+      - '4426292176'
+      - '5503598069'
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ Which product has the highest total_sales?
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-03-01 17:47:22 [INFO] Executing Step 3: CodeGenerator
+2024-03-01 17:47:35 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-03-01 17:47:35 [INFO] Prompt used:
+            dfs[0]:
+  name: null
+  description: null
+  type: pd.DataFrame
+  rows: 1000
+  columns: 6
+  schema:
+    fields:
+    - name: Date
+      type: datetime64[ns]
+      samples:
+      - !!python/object/apply:pandas._libs.tslibs.timestamps._unpickle_timestamp
+        - 1675123200000000000
+        - null
+        - null
+        - 10
+      - !!python/object/apply:pandas._libs.tslibs.timestamps._unpickle_timestamp
+        - 1674950400000000000
+        - null
+        - null
+        - 10
+      - !!python/object/apply:pandas._libs.tslibs.timestamps._unpickle_timestamp
+        - 1681516800000000000
+        - null
+        - null
+        - 10
+    - name: outlets
+      type: object
+      samples:
+      - Outlet_64
+      - Outlet_11
+      - Outlet_93
+    - name: Products
+      type: object
+      samples:
+      - Product_4
+      - Product_28
+      - Product_22
+    - name: Unit_sold
+      type: int32
+      samples:
+      - 51
+      - 158
+      - 217
+    - name: Price_Per_Unit
+      type: float64
+      samples:
+      - 41.58548992949356
+      - 32.42051078081388
+      - 41.0857499976029
+    - name: Total_Sales
+      type: object
+      samples:
+      - '5219616105'
+      - '4426292176'
+      - '5503598069'
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ Which product has the highest total_sales?
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+            
+2024-03-01 17:47:35 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+highest_total_sales_product = dfs[0].loc[dfs[0]['Total_Sales'].astype(int).idxmax()]['Products']
+
+# Declare result var
+result = {
+    "type": "string",
+    "value": f"The product with the highest total sales is: {highest_total_sales_product}"
+}
+            ```
+            
+2024-03-01 17:47:35 [INFO] Executing Step 4: CachePopulation
+2024-03-01 17:47:35 [INFO] Executing Step 5: CodeExecution
+2024-03-01 17:47:35 [INFO] 
+Code running:
+```
+highest_total_sales_product = dfs[0].loc[dfs[0]['Total_Sales'].astype(int).idxmax()]['Products']
+result = {'type': 'string', 'value': f'The product with the highest total sales is: {highest_total_sales_product}'}
+        ```
+2024-03-01 17:47:35 [INFO] Executing Step 6: ResultValidation
+2024-03-01 17:47:35 [INFO] Answer: {'type': 'string', 'value': 'The product with the highest total sales is: Product_12'}
+2024-03-01 17:47:35 [INFO] Executing Step 7: ResultParsing
+2024-03-01 17:47:39 [INFO] Question: Retrieve 1st row but format Price_Per_Unit and Total_Sales to 2 decimal places
+2024-03-01 17:47:39 [INFO] Running PandasAI with openai LLM...
+2024-03-01 17:47:39 [INFO] Prompt ID: 95bf9e7f-aba6-4896-a9aa-f1fd7dc222aa
+2024-03-01 17:47:39 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-03-01 17:47:39 [INFO] Executing Step 0: ValidatePipelineInput
+2024-03-01 17:47:39 [INFO] Executing Step 1: CacheLookup
+2024-03-01 17:47:39 [INFO] Executing Step 2: PromptGeneration
+2024-03-01 17:47:39 [INFO] Using prompt: dfs[0]:
+  name: null
+  description: null
+  type: pd.DataFrame
+  rows: 1000
+  columns: 6
+  schema:
+    fields:
+    - name: Date
+      type: datetime64[ns]
+      samples:
+      - !!python/object/apply:pandas._libs.tslibs.timestamps._unpickle_timestamp
+        - 1675123200000000000
+        - null
+        - null
+        - 10
+      - !!python/object/apply:pandas._libs.tslibs.timestamps._unpickle_timestamp
+        - 1674950400000000000
+        - null
+        - null
+        - 10
+      - !!python/object/apply:pandas._libs.tslibs.timestamps._unpickle_timestamp
+        - 1681516800000000000
+        - null
+        - null
+        - 10
+    - name: outlets
+      type: object
+      samples:
+      - Outlet_64
+      - Outlet_11
+      - Outlet_93
+    - name: Products
+      type: object
+      samples:
+      - Product_4
+      - Product_28
+      - Product_22
+    - name: Unit_sold
+      type: int32
+      samples:
+      - 51
+      - 158
+      - 217
+    - name: Price_Per_Unit
+      type: float64
+      samples:
+      - 41.58548992949356
+      - 32.42051078081388
+      - 41.0857499976029
+    - name: Total_Sales
+      type: object
+      samples:
+      - '5219616105'
+      - '4426292176'
+      - '5503598069'
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ Retrieve 1st row but format Price_Per_Unit and Total_Sales to 2 decimal places
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-03-01 17:47:39 [INFO] Executing Step 3: CodeGenerator
+2024-03-01 17:47:42 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-03-01 17:47:42 [INFO] Prompt used:
+            dfs[0]:
+  name: null
+  description: null
+  type: pd.DataFrame
+  rows: 1000
+  columns: 6
+  schema:
+    fields:
+    - name: Date
+      type: datetime64[ns]
+      samples:
+      - !!python/object/apply:pandas._libs.tslibs.timestamps._unpickle_timestamp
+        - 1675123200000000000
+        - null
+        - null
+        - 10
+      - !!python/object/apply:pandas._libs.tslibs.timestamps._unpickle_timestamp
+        - 1674950400000000000
+        - null
+        - null
+        - 10
+      - !!python/object/apply:pandas._libs.tslibs.timestamps._unpickle_timestamp
+        - 1681516800000000000
+        - null
+        - null
+        - 10
+    - name: outlets
+      type: object
+      samples:
+      - Outlet_64
+      - Outlet_11
+      - Outlet_93
+    - name: Products
+      type: object
+      samples:
+      - Product_4
+      - Product_28
+      - Product_22
+    - name: Unit_sold
+      type: int32
+      samples:
+      - 51
+      - 158
+      - 217
+    - name: Price_Per_Unit
+      type: float64
+      samples:
+      - 41.58548992949356
+      - 32.42051078081388
+      - 41.0857499976029
+    - name: Total_Sales
+      type: object
+      samples:
+      - '5219616105'
+      - '4426292176'
+      - '5503598069'
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ Retrieve 1st row but format Price_Per_Unit and Total_Sales to 2 decimal places
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+            
+2024-03-01 17:47:42 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+
+# Retrieve the first row of the DataFrame
+first_row = dfs[0].iloc[[0]]
+
+# Format Price_Per_Unit and Total_Sales to 2 decimal places
+first_row['Price_Per_Unit'] = first_row['Price_Per_Unit'].apply(lambda x: '{:.2f}'.format(x))
+first_row['Total_Sales'] = first_row['Total_Sales'].apply(lambda x: '{:.2f}'.format(float(x)))
+
+result = {"type": "dataframe", "value": first_row}
+            ```
+            
+2024-03-01 17:47:42 [INFO] Executing Step 4: CachePopulation
+2024-03-01 17:47:42 [INFO] Executing Step 5: CodeExecution
+2024-03-01 17:47:42 [INFO] 
+Code running:
+```
+first_row = dfs[0].iloc[[0]]
+first_row['Price_Per_Unit'] = first_row['Price_Per_Unit'].apply(lambda x: '{:.2f}'.format(x))
+first_row['Total_Sales'] = first_row['Total_Sales'].apply(lambda x: '{:.2f}'.format(float(x)))
+result = {'type': 'dataframe', 'value': first_row}
+        ```
+2024-03-01 17:47:42 [INFO] Executing Step 6: ResultValidation
+2024-03-01 17:47:42 [INFO] Answer: {'type': 'dataframe', 'value':         Date    outlets    Products  Unit_sold Price_Per_Unit Total_Sales
+0 2023-01-20  Outlet_66  Product_12        266          24.30     6464.42}
+2024-03-01 17:47:42 [INFO] Executing Step 7: ResultParsing
+2024-03-01 17:48:52 [INFO] Question: Which product has the highest total_sales?
+2024-03-01 17:48:53 [INFO] Running PandasAI with openai LLM...
+2024-03-01 17:48:53 [INFO] Prompt ID: f93410c9-9f87-4776-a613-aef7e264656d
+2024-03-01 17:48:53 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-03-01 17:48:53 [INFO] Executing Step 0: ValidatePipelineInput
+2024-03-01 17:48:53 [INFO] Executing Step 1: CacheLookup
+2024-03-01 17:48:53 [INFO] Using cached response
+2024-03-01 17:48:53 [INFO] Executing Step 2: PromptGeneration
+2024-03-01 17:48:53 [INFO] Executing Step 2: Skipping...
+2024-03-01 17:48:53 [INFO] Executing Step 3: CodeGenerator
+2024-03-01 17:48:53 [INFO] Executing Step 3: Skipping...
+2024-03-01 17:48:53 [INFO] Executing Step 4: CachePopulation
+2024-03-01 17:48:53 [INFO] Executing Step 4: Skipping...
+2024-03-01 17:48:53 [INFO] Executing Step 5: CodeExecution
+2024-03-01 17:48:53 [INFO] 
+Code running:
+```
+highest_total_sales_product = dfs[0].loc[dfs[0]['Total_Sales'].astype(int).idxmax()]['Products']
+result = {'type': 'string', 'value': f'The product with the highest total sales is: {highest_total_sales_product}'}
+        ```
+2024-03-01 17:48:53 [INFO] Executing Step 6: ResultValidation
+2024-03-01 17:48:53 [INFO] Answer: {'type': 'string', 'value': 'The product with the highest total sales is: Product_2'}
+2024-03-01 17:48:53 [INFO] Executing Step 7: ResultParsing
+2024-03-01 17:48:57 [INFO] Question: Plot the chart of the products based on total_sales
+2024-03-01 17:48:57 [INFO] Running PandasAI with openai LLM...
+2024-03-01 17:48:57 [INFO] Prompt ID: 928846bb-619e-4e61-927e-fc5d1a11bd96
+2024-03-01 17:48:57 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-03-01 17:48:57 [INFO] Executing Step 0: ValidatePipelineInput
+2024-03-01 17:48:57 [INFO] Executing Step 1: CacheLookup
+2024-03-01 17:48:57 [INFO] Executing Step 2: PromptGeneration
+2024-03-01 17:48:57 [INFO] Using prompt: dfs[0]:
+  name: null
+  description: null
+  type: pd.DataFrame
+  rows: 1000
+  columns: 6
+  schema:
+    fields:
+    - name: Date
+      type: datetime64[ns]
+      samples:
+      - !!python/object/apply:pandas._libs.tslibs.timestamps._unpickle_timestamp
+        - 1677024000000000000
+        - null
+        - null
+        - 10
+      - !!python/object/apply:pandas._libs.tslibs.timestamps._unpickle_timestamp
+        - 1677196800000000000
+        - null
+        - null
+        - 10
+      - !!python/object/apply:pandas._libs.tslibs.timestamps._unpickle_timestamp
+        - 1676332800000000000
+        - null
+        - null
+        - 10
+    - name: outlets
+      type: object
+      samples:
+      - Outlet_35
+      - Outlet_30
+      - Outlet_10
+    - name: Products
+      type: object
+      samples:
+      - Product_24
+      - Product_7
+      - Product_11
+    - name: Unit_sold
+      type: int32
+      samples:
+      - 246
+      - 96
+      - 296
+    - name: Price_Per_Unit
+      type: float64
+      samples:
+      - 34.07948562121672
+      - 14.641448284033238
+      - 31.576817063632106
+    - name: Total_Sales
+      type: object
+      samples:
+      - '6744917177'
+      - '2481616907'
+      - 0153723491
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ Plot the chart of the products based on total_sales
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-03-01 17:48:57 [INFO] Executing Step 3: CodeGenerator
+2024-03-01 17:49:12 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-03-01 17:49:12 [INFO] Prompt used:
+            dfs[0]:
+  name: null
+  description: null
+  type: pd.DataFrame
+  rows: 1000
+  columns: 6
+  schema:
+    fields:
+    - name: Date
+      type: datetime64[ns]
+      samples:
+      - !!python/object/apply:pandas._libs.tslibs.timestamps._unpickle_timestamp
+        - 1677024000000000000
+        - null
+        - null
+        - 10
+      - !!python/object/apply:pandas._libs.tslibs.timestamps._unpickle_timestamp
+        - 1677196800000000000
+        - null
+        - null
+        - 10
+      - !!python/object/apply:pandas._libs.tslibs.timestamps._unpickle_timestamp
+        - 1676332800000000000
+        - null
+        - null
+        - 10
+    - name: outlets
+      type: object
+      samples:
+      - Outlet_35
+      - Outlet_30
+      - Outlet_10
+    - name: Products
+      type: object
+      samples:
+      - Product_24
+      - Product_7
+      - Product_11
+    - name: Unit_sold
+      type: int32
+      samples:
+      - 246
+      - 96
+      - 296
+    - name: Price_Per_Unit
+      type: float64
+      samples:
+      - 34.07948562121672
+      - 14.641448284033238
+      - 31.576817063632106
+    - name: Total_Sales
+      type: object
+      samples:
+      - '6744917177'
+      - '2481616907'
+      - 0153723491
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ Plot the chart of the products based on total_sales
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+            
+2024-03-01 17:49:12 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Assuming dfs is a list of DataFrames where each DataFrame contains the necessary columns including 'Products' and 'Total_Sales'
+
+# Concatenate all DataFrames in dfs
+df = pd.concat(dfs)
+
+# Group by Products and sum the Total Sales
+product_sales = df.groupby('Products')['Total_Sales'].sum().sort_values(ascending=False)
+
+# Plotting the chart
+plt.figure(figsize=(12, 6))
+product_sales.plot(kind='bar', color='skyblue')
+plt.title('Total Sales by Product')
+plt.xlabel('Product')
+plt.ylabel('Total Sales')
+plt.xticks(rotation=45)
+plt.tight_layout()
+
+# Save the plot as a PNG file
+plt.savefig('product_sales_chart.png')
+
+result = {"type": "plot", "value": "product_sales_chart.png"}
+            ```
+            
+2024-03-01 17:49:12 [INFO] Executing Step 4: CachePopulation
+2024-03-01 17:49:12 [INFO] Executing Step 5: CodeExecution
+2024-03-01 17:49:12 [INFO] Saving charts to d:\Personal Projects\Big Data Analytics with LLM\exports\charts\temp_chart.png
+2024-03-01 17:49:12 [INFO] 
+Code running:
+```
+df = pd.concat(dfs)
+product_sales = df.groupby('Products')['Total_Sales'].sum().sort_values(ascending=False)
+plt.figure(figsize=(12, 6))
+product_sales.plot(kind='bar', color='skyblue')
+plt.title('Total Sales by Product')
+plt.xlabel('Product')
+plt.ylabel('Total Sales')
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.savefig('d:/Personal Projects/Big Data Analytics with LLM/exports/charts/temp_chart.png')
+result = {'type': 'plot', 'value': 'd:/Personal Projects/Big Data Analytics with LLM/exports/charts/temp_chart.png'}
+        ```
+2024-03-01 17:49:13 [INFO] Executing Step 6: ResultValidation
+2024-03-01 17:49:13 [INFO] Answer: {'type': 'plot', 'value': 'd:/Personal Projects/Big Data Analytics with LLM/exports/charts/temp_chart.png'}
+2024-03-01 17:49:13 [INFO] Executing Step 7: ResultParsing
+2024-03-01 17:51:24 [INFO] Question: Which product has the highest total_sales?
+2024-03-01 17:51:24 [INFO] Running PandasAI with openai LLM...
+2024-03-01 17:51:24 [INFO] Prompt ID: fd5825a4-04a8-4fab-9e53-009fd9765ef4
+2024-03-01 17:51:24 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-03-01 17:51:24 [INFO] Executing Step 0: ValidatePipelineInput
+2024-03-01 17:51:24 [INFO] Executing Step 1: CacheLookup
+2024-03-01 17:51:24 [INFO] Using cached response
+2024-03-01 17:51:24 [INFO] Executing Step 2: PromptGeneration
+2024-03-01 17:51:24 [INFO] Executing Step 2: Skipping...
+2024-03-01 17:51:24 [INFO] Executing Step 3: CodeGenerator
+2024-03-01 17:51:24 [INFO] Executing Step 3: Skipping...
+2024-03-01 17:51:24 [INFO] Executing Step 4: CachePopulation
+2024-03-01 17:51:24 [INFO] Executing Step 4: Skipping...
+2024-03-01 17:51:24 [INFO] Executing Step 5: CodeExecution
+2024-03-01 17:51:24 [INFO] 
+Code running:
+```
+highest_total_sales_product = dfs[0].loc[dfs[0]['Total_Sales'].astype(int).idxmax()]['Products']
+result = {'type': 'string', 'value': f'The product with the highest total sales is: {highest_total_sales_product}'}
+        ```
+2024-03-01 17:51:24 [INFO] Executing Step 6: ResultValidation
+2024-03-01 17:51:24 [INFO] Answer: {'type': 'string', 'value': 'The product with the highest total sales is: Product_19'}
+2024-03-01 17:51:24 [INFO] Executing Step 7: ResultParsing
+2024-03-01 18:02:16 [INFO] Question: Which product has the highest total_sales?
+2024-03-01 18:02:16 [INFO] Running PandasAI with openai LLM...
+2024-03-01 18:02:16 [INFO] Prompt ID: 29da6962-e434-4ffd-9e29-9db3ca3cbb67
+2024-03-01 18:02:16 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-03-01 18:02:16 [INFO] Executing Step 0: ValidatePipelineInput
+2024-03-01 18:02:16 [INFO] Executing Step 1: CacheLookup
+2024-03-01 18:02:16 [INFO] Using cached response
+2024-03-01 18:02:16 [INFO] Executing Step 2: PromptGeneration
+2024-03-01 18:02:16 [INFO] Executing Step 2: Skipping...
+2024-03-01 18:02:16 [INFO] Executing Step 3: CodeGenerator
+2024-03-01 18:02:16 [INFO] Executing Step 3: Skipping...
+2024-03-01 18:02:16 [INFO] Executing Step 4: CachePopulation
+2024-03-01 18:02:16 [INFO] Executing Step 4: Skipping...
+2024-03-01 18:02:16 [INFO] Executing Step 5: CodeExecution
+2024-03-01 18:02:16 [INFO] 
+Code running:
+```
+highest_total_sales_product = dfs[0].loc[dfs[0]['Total_Sales'].astype(int).idxmax()]['Products']
+result = {'type': 'string', 'value': f'The product with the highest total sales is: {highest_total_sales_product}'}
+        ```
+2024-03-01 18:02:16 [INFO] Executing Step 6: ResultValidation
+2024-03-01 18:02:16 [INFO] Answer: {'type': 'string', 'value': 'The product with the highest total sales is: Product_25'}
+2024-03-01 18:02:16 [INFO] Executing Step 7: ResultParsing
