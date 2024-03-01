@@ -13,7 +13,7 @@ After generating the data, it performs basic analysis to answer questions such a
 
 ## ⚡ System Architecture
 
-![System Architecture](https://github.com/ahmedashraffcih/Big-Data-Analytics-with-LLM/blob/main/Blank%20board.png)
+![System Architecture](https://github.com/ahmedashraffcih/Big-Data-Analytics-with-LLM/blob/main/imgs/Blank%20board.png)
 
 The project is designed with the following components:
 
@@ -64,6 +64,13 @@ To use this notebook, follow these instructions:
    `Replace 'your-key' with your OpenAI API key in the script.`
 
 ---
+## Examples
+![Users Topic](https://github.com/ahmedashraffcih/Big-Data-Analytics-with-LLM/blob/main/imgs/users_topic.png)
+![Products Topic](https://github.com/ahmedashraffcih/Big-Data-Analytics-with-LLM/blob/main/imgs/products_topic.png)
+![Products Sink](https://github.com/ahmedashraffcih/Big-Data-Analytics-with-LLM/blob/main/imgs/products_sink.png)
+![Airflow Dag](https://github.com/ahmedashraffcih/Big-Data-Analytics-with-LLM/blob/main/imgs/dag.png)
+---
+
 ## ✨ Contribution
 
 Contributions and feedback are welcome! If you have any ideas, suggestions, or improvements, feel free to open an issue or submit a pull request.
